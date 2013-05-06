@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"runtime"
 )
 
 const (
@@ -83,10 +82,6 @@ func errRecoverWithPGReason(err *error) {
 func errRecover(err *error) {
 	e := recover()
 	switch v := e.(type) {
-	case nil:
-		// Do nothing
-	case runtime.Error:
-		panic(v)
 	case *pgError:
 		if v.Fatal() {
 			*err = driver.ErrBadConn
@@ -103,6 +98,6 @@ func errRecover(err *error) {
 		}
 
 	default:
-		panic(fmt.Sprintf("unknown error: %#v", e))
+		panic(e)
 	}
 }
