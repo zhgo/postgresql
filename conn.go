@@ -22,7 +22,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/lib/pq/oid"
+	"github.com/zhgo/postgresql/oid"
 )
 
 // Common error types

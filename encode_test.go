@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lib/pq/oid"
+	"github.com/zhgo/postgresql/oid"
 )
 
 func TestScanTimestamp(t *testing.T) {
